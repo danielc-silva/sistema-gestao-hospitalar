@@ -1,0 +1,46 @@
+from .Funcionario import Funcionario
+
+class Medico (Funcionario):
+    def __init__(self, nome=None,
+                 cpf=None,
+                 data_nascimento=None,
+                 id_funcionario=None,
+                 salario=None, status=None,
+                 crm = None,
+                 especialidade = None):
+        super().__init__(nome, cpf, data_nascimento, id_funcionario, salario, status)
+        self.crm = crm
+        self.especialidade = especialidade
+
+    @property
+    def crm (self):
+        return self.__crm
+    
+    @crm.setter
+    def crm (self, crm_recebido):
+        if (crm_recebido == None):
+            raise ValueError ("Campo CRM é obrigatório.")
+        self.__crm = crm_recebido.upper()
+
+    @property
+    def especialidade (self):
+        return self.__especialidade
+    
+    @especialidade.setter
+    def especialidade (self, especialidade_recebida):
+        if (especialidade_recebida == None):
+            raise ValueError ("O campo Especialidade é obrigatório.")
+        self.__especialidade = especialidade_recebida
+
+    def __str__(self):
+        infos = "\nINFORMAÇÕES DO MÉDICO"
+        infos += super().__str__()
+        infos += (f"\nCRM: {self.crm}")
+        infos += (f"\nEspecialidade: {self.especialidade}")
+        return infos
+    
+    def trabalhar(self):
+        return (f"Dr. {self.nome} está atendendo na emergência.")
+    
+    def papel_da_pessoa(self):
+        return "Medico"

@@ -21,7 +21,8 @@ class Paciente (Pessoa):
         return "Paciente"
     
     def __str__(self):
-        infos = super().__str__()
+        infos = "\nINFORMAÇÕES DO PACIENTE"
+        infos += super().__str__()
         infos += (f"\nID Hospitalar: {self.id_hosp}")
 
         return infos
