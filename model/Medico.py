@@ -33,7 +33,7 @@ class Medico (Funcionario):
         self.__especialidade = especialidade_recebida
 
     def __str__(self):
-        infos = "\nINFORMAÇÕES DO MÉDICO"
+        infos = "\n=== INFORMAÇÕES DO MÉDICO ==="
         infos += super().__str__()
         infos += (f"\nCRM: {self.crm}")
         infos += (f"\nEspecialidade: {self.especialidade}")
