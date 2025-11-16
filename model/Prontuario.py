@@ -14,7 +14,7 @@ class Prontuario:
         hoje = datetime.now()
         infos = f"\nEntrada: {hoje.strftime('%d/%m/%Y às %H:%M')}"
         infos += f"\nMédico: {medico.nome}"
-        infos += f"\nDescrição: {descricao}"
+        infos += f"\nQueixa: {descricao}"
         self.__entradas.append(infos)
         return
     

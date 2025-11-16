@@ -1,4 +1,5 @@
 from .Funcionario import Funcionario
+from .StatusFuncionario import StatusFuncionario
 
 class Enfermeiro (Funcionario):
     def __init__(self, nome=None, cpf=None, data_nascimento=None, id_funcionario=None, salario=None, status=None, coren = None):
@@ -19,10 +20,12 @@ class Enfermeiro (Funcionario):
         return 'Enfermeiro'
     
     def __str__(self):
-        infos = "INFORMAÇÕES DO ENFERMEIRO"
+        infos = "\n=== INFORMAÇÕES DO ENFERMEIRO ==="
         infos += super().__str__()
         infos += (f"\nCOREN: {self.coren}")
         return infos
     
     def trabalhar(self):
-        return (f"\nO enfermeiro {self.nome} está aplicando medicamentos nos pacientes paliativos.")
+         if (self.status !=StatusFuncionario.ATIVO):
+            return (f"\nATENÇÃO: Não foi é possível solicitar que o Enfermeiro {self.nome} trabalhe pois ele se encontra {self.status.value} no momento.")
+         return (f"\nO enfermeiro {self.nome} está aplicando medicamentos nos pacientes paliativos.")

@@ -57,10 +57,6 @@ class Funcionario (Pessoa, ABC):
             raise TypeError("O status deve ser do tipo StatusFuncionario ou string.")
         self.__status = novo_status
         self.atualizar_historico()
-
-    @abstractmethod
-    def papel_da_pessoa(self):
-        pass
     
     def __str__(self):
         infos = super().__str__()
@@ -70,32 +66,46 @@ class Funcionario (Pessoa, ABC):
         return infos
     
     def mostrar_historico (self):
-        hist = (f'\nHistórico do funcionario [{self.nome}]\n')
+        hist = (f'\nHistórico do funcionario [{self.nome}: {self.papel_da_pessoa()}]\n')
+        tamanho_para_formatacao = len(hist)
+        hist += "=" * tamanho_para_formatacao
         for historico in (self.__historico_funcionario):
             hist += (f'\n{historico}')
+        hist += "\n"
+        hist += "=" * tamanho_para_formatacao
         hist += ('\n')
         return hist
     
     def afastar_funcionario (self):
         self.status = StatusFuncionario.AFASTADO
+        return
 
     def ferias_funcionario (self):
         self.status = StatusFuncionario.FERIAS
+        return
 
     def ativar_funcionario (self):
         self.status = StatusFuncionario.ATIVO
+        return
     
     def aviso_previo_funcionario (self):
         self.status = StatusFuncionario.AVISO_PREVIO
+        return
 
     def desligar_funcionario (self):
         self.status = StatusFuncionario.DESLIGADO
+        
 
     def atualizar_historico (self):
         hoje = datetime.now()
         info = (f'Status alterado para ({self.status.value}) em {hoje.strftime("%d-%m-%Y")}')
         self.__historico_funcionario.append(info)
+        return
 
     @abstractmethod
     def trabalhar (self):
+        pass
+
+    @abstractmethod
+    def papel_da_pessoa(self):
         pass

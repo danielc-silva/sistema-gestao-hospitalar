@@ -1,4 +1,5 @@
 from .Funcionario import Funcionario
+from .StatusFuncionario import StatusFuncionario
 
 class Medico (Funcionario):
     def __init__(self, nome=None,
@@ -40,7 +41,9 @@ class Medico (Funcionario):
         return infos
     
     def trabalhar(self):
-        return (f"Dr. {self.nome} está atendendo na emergência.")
+         if (self.status !=StatusFuncionario.ATIVO):
+            return (f"\nATENÇÃO: Não foi é possível solicitar que o Dr. {self.nome} trabalhe pois ele se encontra {self.status.value} no momento.")
+         return (f"Dr. {self.nome} está atendendo pacientes.")
     
     def papel_da_pessoa(self):
         return "Medico"
