@@ -55,6 +55,7 @@ class Funcionario (Pessoa, ABC):
                     raise ValueError(f"Status: '{status_recebido}' é inválido. Use um membro de StatusFuncionario.")
         else:
             raise TypeError("O status deve ser do tipo StatusFuncionario ou string.")
+            # lembrando aqui só entra c o usuario tentar mandar um int ou float
         self.__status = novo_status
         self.atualizar_historico()
     

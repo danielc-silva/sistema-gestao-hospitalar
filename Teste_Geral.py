@@ -6,6 +6,7 @@ from model.Paciente import Paciente
 from model.ExameSangue import ExameSangue
 from model.ExameRaioX import ExameRaioX
 from model.Prescricao import Prescricao
+from model.Consulta import Consulta
 
 p3 = Paciente("Daniel cipriano da silva", "04039434952", "14-12-2005", "ddsf234")
 E1 = Enfermeiro("Maria Anônia", "98763456787", "12-08-2000", "321321", 10000, "ativo", "9999-RS")
@@ -39,3 +40,9 @@ presc1.adicionar_medicamento("Paracetamol 500mg")
 presc1.adicionar_medicamento("Ibuprofeno 400mg")
 print(presc1)
 print(presc1.realizar_exames())
+M1.afastar_funcionario()
+M1.ativar_funcionario()
+consulta1 = Consulta(M1, p3, "15-11-2024 14:30", None) # a data e a hora devem ser postas assim 
+print(consulta1) 
+consulta1.adicionar_prescricao(presc1)
+print(consulta1) 

@@ -32,11 +32,6 @@ class Prescricao ():
         if not isinstance(paciente_recebido, Paciente):
             raise TypeError("O paciente deve ser uma instância da classe Paciente.")
         self.__paciente = paciente_recebido
-
-    def __str__(self):
-        infos = f"\nMédico: {self.medico_solicitante.nome}"
-        infos += f"\nPaciente: {self.paciente.nome}"
-        return infos
     
     def adicionar_exame (self, exame : Exame):
         if not isinstance(exame, Exame):
@@ -49,26 +44,26 @@ class Prescricao ():
         self.__lista_medicamentos.append(medicamento)
 
     def lista_exames_solicitados (self):
-        infos = "\n======= Exames Solicitados ======="
+        infos = "\n--------- Exames Solicitados -------"
         for exame in self.__lista_exames:
             infos += f"{exame}"
-        infos += "\n==================================="
+        infos += "\n------------------------------------"
         return infos
     
     def listar_medicamentos_prescritos (self):
-        infos = "\n===== Medicamentos Prescritos ====="
+        infos = "\n----- Medicamentos Prescritos ------"
         for medicamento in self.__lista_medicamentos:
             infos += f"\n {medicamento}"
-        infos += "\n==================================="  
+        infos += "\n------------------------------------"  
         return infos
     
     def __str__(self):
-        infos = "\n======== PRESCRIÇÃO MÉDICA ========"
+        infos = "\n========= PRESCRIÇÃO MÉDICA ========="
         infos += f"\nMédico: {self.medico_solicitante.nome}"
         infos += f"\nPaciente: {self.paciente.nome}"
-        infos += "\n==================================="
         infos += self.lista_exames_solicitados()
         infos += self.listar_medicamentos_prescritos()
+        infos += "\n====================================="
         return infos
     
     def realizar_exames (self):
@@ -76,6 +71,11 @@ class Prescricao ():
         for exame in self.__lista_exames:
             infos += exame.realizar_exame(self.paciente)
         infos += "\n====================================="
+        return infos
+    
+    def exibir_Exames_Medicamentos (self):
+        infos = self.listar_medicamentos_prescritos()
+        infos += self.lista_exames_solicitados()
         return infos
 
 
