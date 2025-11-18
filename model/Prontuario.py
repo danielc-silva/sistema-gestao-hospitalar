@@ -1,5 +1,4 @@
 from datetime import date, time, datetime, timedelta
-from .Medico import Medico
 from .StatusFuncionario import StatusFuncionario
 
 class Prontuario:
@@ -7,7 +6,8 @@ class Prontuario:
         self.__paciente_dono = paciente_dono
         self.__entradas = []
 
-    def atualizar_entradas (self, medico : Medico, descricao):
+    def atualizar_entradas (self, medico, descricao):
+        from .Medico import Medico # Importação local para evitar dependência circular
         if (medico.status !=StatusFuncionario.ATIVO):
             print(f"\nATENÇÃO: Não foi possivel atualizar o prontuario do paciente pois o Dr. {medico.nome} se encontra {medico.status.value} no momento.")
             return

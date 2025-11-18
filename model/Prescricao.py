@@ -67,7 +67,7 @@ class Prescricao ():
         return infos
     
     def realizar_exames (self):
-        infos = "\n========= Realizando dos Exames ========="
+        infos = "\n=========== Realizando Exames ==========="
         for exame in self.__lista_exames:
             infos += exame.realizar_exame(self.paciente)
         infos += "\n====================================="

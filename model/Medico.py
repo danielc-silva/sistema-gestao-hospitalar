@@ -43,7 +43,7 @@ class Medico (Funcionario):
     def trabalhar(self):
          if (self.status != StatusFuncionario.ATIVO):
             return (f"\nATENÇÃO: Não foi é possível solicitar que o Dr. {self.nome} trabalhe pois ele se encontra {self.status.value} no momento.")
-         return (f"Dr. {self.nome} está atendendo pacientes.")
+         return (f"Dr. {self.nome} está de plantão.")
     
     def papel_da_pessoa(self):
         return "Medico"

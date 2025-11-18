@@ -10,16 +10,12 @@ class EstrategiaPagamento(ABC):
         pass
 
 
-
-
 class PagamentoParticular(EstrategiaPagamento):
     def calcular_valor(self, valor_base: float):
         return valor_base # Sem desconto
     
     def __str__(self):
         return "Particular (Valor Integral)"
-
-
 
 
 class PagamentoConvenio(EstrategiaPagamento):
@@ -35,8 +31,6 @@ class PagamentoConvenio(EstrategiaPagamento):
         return f"Convênio {self.nome_convenio}"
 
 
-
-
 class PagamentoRetorno(EstrategiaPagamento):
     def calcular_valor(self, valor_base: float):
         return 0.0 # Gratuuito pois é o retorno 
@@ -44,8 +38,6 @@ class PagamentoRetorno(EstrategiaPagamento):
     def __str__(self):
         return "Retorno (Gratuito)"
     
-
-
 
 class PagamentoSUS(EstrategiaPagamento):
     def calcular_valor(self, valor_base: float):
