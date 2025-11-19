@@ -118,8 +118,7 @@ class Consulta ():
 
     def realizar_consulta (self):
         self.status_consulta = StatusConsulta.REALIZADA
-        info = f"Consulta de {self.data_hora} finalizada com sucesso."
-        return info
+        return
     
     def cancelar_consulta (self):
         self.status_consulta = StatusConsulta.CANCELADA

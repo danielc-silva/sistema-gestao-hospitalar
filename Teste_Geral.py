@@ -7,6 +7,11 @@ from model.ExameSangue import ExameSangue
 from model.ExameRaioX import ExameRaioX
 from model.Prescricao import Prescricao
 from model.Consulta import Consulta
+from model.EstrategiasPagamento import PagamentoConvenio, PagamentoParticular, PagamentoSUS
+from model.SistemaAgendamento import SistemaAgendamento
+
+# TESTE GERAL UTILIZADO DURANTE A IMPLEMENTAÇÃO DAS CLASSES
+# PARA VERIFICAR SE ESTAVAM FUNCIONANDO CORRETAMENTE COMO O ESPERADO
 
 p3 = Paciente("Daniel cipriano da silva", "04039434952", "14-12-2005", "ddsf234")
 E1 = Enfermeiro("Maria Anônia", "98763456787", "12-08-2000", "321321", 10000, "ativo", "9999-RS")
@@ -46,3 +51,7 @@ consulta1 = Consulta(M1, p3, "15-11-2024 14:30", None) # a data e a hora devem s
 print(consulta1) 
 consulta1.adicionar_prescricao(presc1)
 print(consulta1) 
+SISTEMA_DE_AGENDAMENTO = SistemaAgendamento()
+SISTEMA_DE_AGENDAMENTO.agendar_consulta(M1, p3, "20-11-2024 10:00", PagamentoConvenio("Unimed", 20))
+SISTEMA_DE_AGENDAMENTO.agendar_consulta(M2, p3, "25-11-2024 15:00", PagamentoParticular())
+print(SISTEMA_DE_AGENDAMENTO)

@@ -31,5 +31,4 @@ class SistemaAgendamento ():
         infos = "\n========= CONSULTAS AGENDADAS ========="
         for i in self.consultas :
             infos += f"\n{(i).__str__()}" # vou utilizar diretamente pois vou jogar o retorno em uma string unica
-        infos += "\n======================================="
         return infos

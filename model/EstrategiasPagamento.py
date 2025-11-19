@@ -22,10 +22,11 @@ class PagamentoConvenio(EstrategiaPagamento):
     def __init__(self, nome_convenio, desconto_percentual):
         self.nome_convenio = nome_convenio
         # aqui recebe o percentual, no caso 0.2 é 20%
-        self.fator_pagamento = 1.0 - desconto_percentual 
+        self.fator_pagamento = desconto_percentual / 100
 
     def calcular_valor(self, valor_base: float):
-        return valor_base * self.fator_pagamento
+        valor_consulta = valor_base - (valor_base * self.fator_pagamento)
+        return valor_consulta
     
     def __str__(self):
         return f"Convênio {self.nome_convenio}"
