@@ -14,7 +14,7 @@ class ExameRaioX (Exame):
     def parte_do_corpo (self, parte_recebida):
         if (parte_recebida == None):
             raise ValueError ("O campo Parte do Corpo é obrigatório.")
-        self.__parte_do_corpo = parte_recebida.upper()
+        self.__parte_do_corpo = parte_recebida
 
     def realizar_exame(self, paciente_alvo : Paciente):
         info = (f"\nTirando Raio-X do ({self.parte_do_corpo}) de {paciente_alvo.nome}")

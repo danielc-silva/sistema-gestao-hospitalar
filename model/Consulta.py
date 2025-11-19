@@ -10,18 +10,28 @@ class Consulta ():
 
     VALOR_BASE = 400.00 # defini esse valor pra aplicar o strategy pattern depois
 
-    def __init__(self, medico : Medico = None,
+    def __init__(self, codigo_consulta : int = None,
+                medico : Medico = None,
                 paciente : Paciente = None,
                 data_hora : datetime = None,
                 status_consulta = None,
                 estrategia_pagamento: EstrategiaPagamento = None):
-                
+        self.codigo_consulta = codigo_consulta
         self.medico = medico
         self.paciente = paciente
         self.data_hora = data_hora
         self.prescricao = None
         self.status_consulta = status_consulta
         self.estrategia_pagamento = estrategia_pagamento
+
+    @property
+    def codigo_consulta (self):
+        return self.__codigo_consulta
+    
+    @codigo_consulta.setter
+    def codigo_consulta (self, codigo_recebido):
+        self.__codigo_consulta = codigo_recebido
+
 
     @property
     def estrategia_pagamento(self):
@@ -126,6 +136,7 @@ class Consulta ():
     
     def __str__(self):
         infos = f"\n============= CONSULTA ============="
+        infos += f"\nCódigo da Consulta: {self.codigo_consulta}"
         infos += f"\nStatus: {self.status_consulta.value}"
         infos += f"\nMédico: {self.medico.nome}"
         infos += f"\nPaciente: {self.paciente.nome}"
