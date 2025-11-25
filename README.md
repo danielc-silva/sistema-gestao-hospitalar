@@ -29,7 +29,7 @@ Implementado no cálculo de cobrança das Consultas (`EstrategiasPagamento`).
 
 ## Diagrama de Classes UML
 
-![UML do projeto](imagens/UML_Hospitalar.png)
+imagens/UML%20Hospitalar.png
 
 ## Como Executar
 
