@@ -8,11 +8,20 @@ class SistemaAgendamento ():
     def __init__(self):
         self.consultas = []
 
+    def verificar_codigo_unico(self, codigo_consulta: int):
+        for consulta in self.consultas:
+            if consulta.codigo_consulta == codigo_consulta:
+                return False 
+        return True
+
     def agendar_consulta(self, codigo_consulta: int,
                         medico : Medico,
                         paciente : Paciente,
                         data_hora : datetime,
                         estrategia_pagamento: EstrategiaPagamento = None):
+        
+        if not self.verificar_codigo_unico(codigo_consulta): # se for falso existe um codigo igual então erro
+            raise ValueError(f"ERRO: O código da consulta {codigo_consulta} já está em uso. Por favor, escolha outro código.")
         
         nova_consulta = Consulta(
             codigo_consulta = codigo_consulta,
@@ -27,10 +36,10 @@ class SistemaAgendamento ():
         return nova_consulta
     
 
-    def adicionar_prescricao_consulta(self, cod_consult, prontuario : str):
+    def adicionar_prescricao_consulta(self, cod_consult, prescricao : str):
         for consulta in self.consultas:
             if consulta.codigo_consulta == cod_consult:
-                consulta.adicionar_prescricao(prontuario)
+                consulta.adicionar_prescricao(prescricao)
                 return consulta.paciente.prontuario
         raise ValueError(f"Consulta com código {cod_consult} não encontrada.")
 

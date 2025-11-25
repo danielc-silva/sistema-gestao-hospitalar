@@ -39,16 +39,15 @@ class Consulta ():
 
     @estrategia_pagamento.setter
     def estrategia_pagamento(self, estrategia_recebida):
-        # Se não passar nada, assumimos o padrão "Particular"
+        # caso não mande nada fica como particular
         if estrategia_recebida is None:
             self.__estrategia_pagamento = PagamentoParticular()
         
-        # Se passar, tem que ser uma filha de EstrategiaPagamento
         elif isinstance(estrategia_recebida, EstrategiaPagamento):
             self.__estrategia_pagamento = estrategia_recebida
         
         else:
-            raise TypeError("A estratégia deve herdar de EstrategiaPagamento.")
+            raise TypeError("A estratégia deve VÁLIDA.")
 
     @property
     def medico (self):
@@ -150,9 +149,5 @@ class Consulta ():
         infos += f"\n====================================="
         return infos
     
-    def fechar_conta(self):
-        """
-        Usa o polimorfismo da estratégia para calcular o valor.
-        A Consulta não sabe a regra, ela só pergunta para a estratégia.
-        """
+    def fechar_conta(self): # usa o polimorfismo do strategy pattern
         return self.estrategia_pagamento.calcular_valor(self.VALOR_BASE)

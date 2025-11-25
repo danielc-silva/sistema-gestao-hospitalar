@@ -26,6 +26,6 @@ class Enfermeiro (Funcionario):
         return infos
     
     def trabalhar(self):
-         if (self.status !=StatusFuncionario.ATIVO):
-            return (f"\nATENÇÃO: Não foi é possível solicitar que o Enfermeiro {self.nome} trabalhe pois ele se encontra {self.status.value} no momento.")
+         if (self.status != StatusFuncionario.ATIVO):
+            return (f"\nATENÇÃO: Não foi é possível solicitar que o Enfermeiro {self.nome} trabalhe pois ele se encontra [{self.status.value}] no momento.")
          return (f"\nO enfermeiro {self.nome} está aplicando medicamentos nos pacientes paliativos.")

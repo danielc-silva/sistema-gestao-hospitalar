@@ -59,4 +59,4 @@ class Pessoa (ABC):
     def papel_da_pessoa (self):
         pass
 
-    # A ideia é que cada filha diga o papel é (Funcionario, Paciente, ...)
+    # A ideia é que cada filha diga qual é o seu papel no hospital 

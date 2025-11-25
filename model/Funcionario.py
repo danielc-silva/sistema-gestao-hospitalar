@@ -8,7 +8,7 @@ class Funcionario (Pessoa, ABC):
         super().__init__(nome, cpf, data_nascimento)
         self.id_funcionario = id_funcionario 
         self.salario = salario
-        self.__historico_funcionario = []
+        self.__historico_funcionario = [] # no setter do status já atualiza o histórico
         self.status = status
 
     @property
