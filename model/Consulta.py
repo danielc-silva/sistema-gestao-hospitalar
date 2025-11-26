@@ -4,7 +4,7 @@ from .Paciente import Paciente
 from datetime import datetime 
 from .StatusConsulta import StatusConsulta
 from .StatusFuncionario import StatusFuncionario
-from .EstrategiasPagamento import EstrategiaPagamento, PagamentoParticular
+from .EstrategiasPagamento import EstrategiaPagamento, PagamentoParticular, PagamentoConvenio, PagamentoSUS
 
 class Consulta ():
 
