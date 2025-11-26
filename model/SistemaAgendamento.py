@@ -42,6 +42,14 @@ class SistemaAgendamento ():
                 consulta.adicionar_prescricao(prescricao)
                 return consulta.paciente.prontuario
         raise ValueError(f"Consulta com código {cod_consult} não encontrada.")
+    
+
+    def realizar_consulta_agendada(self, cod_consult):
+        for consulta in self.consultas:
+            if consulta.codigo_consulta == cod_consult:
+                consulta.realizar_consulta()
+                return
+        raise ValueError(f"Consulta com código {cod_consult} não encontrada.")
 
     
     def __str__(self):

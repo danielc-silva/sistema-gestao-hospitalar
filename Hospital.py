@@ -71,6 +71,9 @@ try:
 
     Agenda.agendar_consulta("2",Medico_1, Paciente_1, "15-10-2026 11:00", PagamentoParticular())
 
+    Agenda.agendar_consulta("3",Medico_1, Paciente_1, "19-12-2028 15:00", PagamentoParticular())
+    # vou usar dps para realizar sem ter uma prescrição
+
     Agenda.adicionar_prescricao_consulta("2", Prescricao_1) # adicionando prescrição à consulta agendada de acordo com o código
 
     print(Agenda)
@@ -97,6 +100,10 @@ try:
     # agr vai atualizar normalmente pois o médico está ativo e pode trabalhar
 
     print (f"{Paciente_1.prontuario.mostrar_prontuario()}\n")
+
+    Agenda.realizar_consulta_agendada("3") # realizando a consulta agendada de código 3
+
+    print(Agenda)
 
 except Exception as e:
     print(f"Erro: {e}")
