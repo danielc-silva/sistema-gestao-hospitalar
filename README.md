@@ -29,7 +29,8 @@ Implementado no cálculo de cobrança das Consultas (`EstrategiasPagamento`).
 
 ## Diagrama de Classes UML
 
-[Clique aqui para visualizar o Diagrama UML do Projeto](https://drive.google.com/file/d/1oItsRZVv7nSpFl1D4czq1sO1mHwjqY-v/view?usp=sharing)
+<img width="2400" height="1350" alt="UML Hospitalar " src="https://github.com/user-attachments/assets/21d079fd-c61d-4994-bd1e-09909ca43c41" />
+
 
 ## Como Executar
 
